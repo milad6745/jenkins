@@ -28,3 +28,14 @@ services:
 
 ## Execute Docker compose command:
 sudo docker-compose up -d 
+
+
+## check docker logs
+docker logs
+a746b233f658429f90efc4862fcec773
+
+
+## check interface jenkins
+127.0.0.1:8080
+pass : a746b233f658429f90efc4862fcec773
+
