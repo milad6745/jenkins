@@ -1,6 +1,6 @@
 ##`system configure`
 
-Dashboard > Manage Jenkins > System
+### `Dashboard > Manage Jenkins > System`
 
 
 - Generic Webhook Trigger Whitelist 
@@ -16,7 +16,8 @@ Dashboard > Manage Jenkins > System
 
 
 
-Dashboard > Manage Jenkins > Nodes >  Built-In Node > Configure
+### `Dashboard > Manage Jenkins > Nodes >  Built-In Node > Configure`
+
 
 داخل کانفیگ bultin Node همان نودی که داخلش هستیم، میتوانیم لیبل بزنیم که فلان لیبل ها را فقط اجرا کن - چون مستر نود ما هست .
 
@@ -24,7 +25,8 @@ Dashboard > Manage Jenkins > Nodes >  Built-In Node > Configure
 
 
 
-Dashboard > Manage Jenkins > Nodes
+### `Dashboard > Manage Jenkins > Nodes`
+
 
 در Jenkins، مفهوم "Node" به محیط یا سروری اشاره دارد که وظیفه اجرای بندهای کار (Job) را بر عهده دارد. هر Node می‌تواند دارای یک یا چندین Executor باشد که به صورت همزمان بر روی آن اجراها انجام شود. 
 این نودها به صورت مجازی یا فیزیکی در ساختار شبکه Jenkins قرار می‌گیرند و می‌توانند بر روی یک سرور محلی یا سرورهای از راه دور (remote) باشند.
@@ -32,7 +34,22 @@ Dashboard > Manage Jenkins > Nodes
 ما Node هایمان را میتوانیم در Cloud هم ایجاد کنیم Ec2 - Kuber - Docker , ...
 
 
-Dashboard > Manage Jenkins > Tools
+### `Dashboard > Manage Jenkins > Tools`
+
+
 ددر اینجا tools هایی که الان نصب است میتوانیم کانفیگ کنیمم.
 مثل انسیبل - داکر - kubernetes - teraform - ...
+
+### `Dashboard > Manage Jenkins > Managed files`
+
+در Jenkins، "Managed Files" یک ویژگی است که به مدیران سیستم و توسعه‌دهندگان امکان می‌دهد فایل‌های مدیریتی را در سیستم Jenkins مدیریت و نگهداری کنند. این فایل‌ها معمولاً شامل تنظیمات مختلف یا اطلاعاتی هستند که می‌خواهید در تمام پروژه‌ها یا بین مختلف Job ها به اشتراک گذاشته شوند.
+
+با استفاده از Managed Files، می‌توانید فایل‌هایی را در Jenkins آپلود کنید و سپس از آنها در تنظیمات Job ها، Pipeline ها یا تنظیمات مربوط به سیستم Jenkins استفاده کنید. این امکان به شما کمک می‌کند تا اطلاعات تکراری را مدیریت و همگام‌سازی کنید و تغییرات در فایل‌های مدیریتی به صورت متمرکز انجام شود.
+
+
+
+### `Dashboard > Manage Jenkins > Configuration as Code`
+
+ در Jenkins به رویکردی اشاره دارد که به شما این امکان را می‌دهد تا تنظیمات Jenkins را به صورت کد منبع باز (کدی) مدیریت کنید. این رویکرد به معنای این است که تمام تنظیمات مربوط به پروژه‌ها، Job‌ها، نودها، تنظیمات جلسات و... را می‌توان به صورت یک کد (معمولاً YAML یا Groovy) تعریف کرد و در مخزن کد نگهداری کرد. این کد سپس به Jenkins ارائه می‌شود و تغییرات تنظیمات را با اجرای یک پروسه خودکار اعمال می‌کند.
+
 
