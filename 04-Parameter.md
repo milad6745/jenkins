@@ -47,3 +47,33 @@ pipeline {
  با استفاده از دستور `echo`، پیام "Hello Milad" یا مقدار دلخواه وارد شده بر اساس مقدار پارامتر "x" چاپ می‌شود. 
 
 به عبارت دیگر، این pipeline یک پیام خوشامد به نامی (که از طریق پارامتر "x" ارائه می‌شود) چاپ می‌کند. زمانی که این pipeline اجرا می‌شود، Jenkins از کاربر مقدار جدیدی برای پارامتر "x" بپرسد و سپس مرحله "Hello" اجرا شود.
+
+
+### 'rebuild'
+از دفعه اول به بعد وقتی میخواهیم دوباره بیلد کنیم بهمون یک صفحه نشان میدهد که میتوانیم پارامتر را عوض کنیم .
+![image](https://github.com/milad6745/jenkins/assets/113288076/4279caf2-a5e8-4959-815b-af4458e71df3)
+
+## `bolean parameter`
+
+در اینجا یک پارامتر بولین مشاهده میکنیم 
+```
+pipeline {
+    agent any
+    parameters {
+        string(name: "x", defaultValue: 'Milad')
+        booleanParam(name: 'Enable', defaultValue: true)
+    }
+    stages {
+        stage('Hello') {
+            steps {
+                echo "Hello $params.x"
+                echo "this is $params.Enable"
+            }
+        
+        }
+    }
+}
+```
+که پس از build کردن اینگونه نمایش داده میشود 
+![image](https://github.com/milad6745/jenkins/assets/113288076/d0ce0b7b-43d0-409d-bbeb-97e3d3ccd9cc)
+
