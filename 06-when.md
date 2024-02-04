@@ -21,3 +21,22 @@ pipeline {
 در این مثال، `when` با استفاده از `expression` بررسی می‌کند که آیا متغیر `BRANCH_NAME` برابر با 'master' است یا نه. اگر این شرط برقرار باشد، مرحله مشخص شده اجرا می‌شود، و در غیر این صورت، نادیده گرفته می‌شود.
 
 توجه داشته باشید که `BRANCH_NAME` می‌تواند توسط Jenkins به عنوان متغیری در اختیار شما قرار گیرد که نام برنچ فعلی را نشان می‌دهد. این متغیرها بسته به تنظیمات Jenkins ممکن است تغییر کنند، لذا بهتر است مستندات Jenkins خود را بررسی کنید یا با مدیر Jenkins خود تماس بگیرید تا اطمینان حاصل کنید که نام متغیر درست استفاده شده است.
+
+
+
+```
+Started by user milad
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/test01
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Mystage)
+Stage "Mystage" skipped due to when conditional
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
+```
