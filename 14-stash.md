@@ -1,3 +1,5 @@
+
+# `stash`
 دستورات `stash` و `unstash` در Jenkins Pipeline برای آرشیو و بازیابی (Unstash) فایل‌ها به منظور انتقال آنها بین مراحل (stages) مختلف در یک Pipeline استفاده می‌شوند. این دستورات مفید هستند زمانی که نیاز به انتقال فایل‌ها (مثلاً فایل‌های سورس یا توابع تست) از یک مرحله به مرحله دیگر دارید.
 
 در ادامه یک مثال از استفاده از `stash` و `unstash` در یک Jenkins Pipeline آورده شده است:
@@ -39,3 +41,55 @@ pipeline {
 2. در مرحله "Test"، فایل‌های آرشیو شده با دستور `unstash` بازیابی می‌شوند و می‌توانید عملیات‌های مورد نظر (مثلاً انجام تست‌ها) را انجام دهید.
 
 به یاد داشته باشید که نام stash باید در مراحل مختلف یکسان باشد تا بتوانید فایل‌ها را بازیابی کنید.
+
+
+## `Example`
+
+البته از آنجایی که استفاده از `unstash` در یک مرحله (stage) پس از `stash` همان مرحله ممکن نیست، بنابراین باید این عملیات‌ها را در مراحل متوالی انجام دهید. در ادامه یک مثال از استفاده از `stash`، `unstash` و حذف (delete) در Jenkins Pipeline آورده شده است:
+
+```groovy
+pipeline {
+    agent any
+    stages {
+        stage('Create and Stash File') {
+            steps {
+                script {
+                    // ایجاد یک فایل به نام test.txt
+                    writeFile file: 'test.txt', text: 'Hello, Jenkins!'
+                    
+                    // آرشیو کردن فایل با stash
+                    stash includes: 'test.txt', name: 'myStash'
+                }
+            }
+        }
+
+        stage('Read Stashed File') {
+            steps {
+                script {
+                    // بازیابی فایل آرشیو شده با unstash
+                    unstash 'myStash'
+
+                    // خواندن محتوای فایل
+                    def fileContent = readFile 'test.txt'
+                    echo "Content of the file: ${fileContent}"
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            // حذف stash در پست (post)
+            cleanWs()
+        }
+    }
+}
+```
+
+در این مثال:
+
+1. در مرحله "Create and Stash File"، یک فایل به نام `test.txt` ایجاد شده و سپس با دستور `stash` آرشیو شده و با نام `myStash` در Jenkins ذخیره می‌شود.
+
+2. در مرحله "Read Stashed File"، فایل آرشیو شده با دستور `unstash` بازیابی می‌شود و محتوای آن فایل خوانده می‌شود.
+
+3. در بخش `post` با دستور `cleanWs` محل ذخیره‌سازی فایل‌های Workspace پاک می‌شود. این دستور برای حذف فایل‌های موقتی و تمیز کردن Workspace استفاده می‌شود.
