@@ -25,3 +25,26 @@ pipeline {
 ```
 
 در این مثال، `def` برای تعریف یک متغیر محلی (`localVar`) درون بلوک `script` استفاده شده است.
+
+
+# `environment`
+
+با این کار متغیرمان را در محیط گلوبال تعریف کردیم تا بتوانیم در تمامی stage ها ازش استفاده کنیم و محدود به یک stage نباشد .
+```
+pipeline {
+    agent any
+    environment {
+        globalVar = 'Global variable'
+    }
+
+    stages {
+        stage('Example') {
+            steps {
+                script {
+                    echo "Global Variable: ${globalVar}"
+                }
+            }
+        }
+    }
+}
+```
