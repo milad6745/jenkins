@@ -30,7 +30,7 @@ pipeline {
 # `environment`
 
 با این کار متغیرمان را در محیط گلوبال تعریف کردیم تا بتوانیم در تمامی stage ها ازش استفاده کنیم و محدود به یک stage نباشد .
-```
+```groovy
 pipeline {
     agent any
     environment {
