@@ -8,3 +8,4 @@
 ![image](https://github.com/milad6745/jenkins/assets/113288076/1b40944d-12d9-4f19-8aa1-e78f863d757e)
 
 
+سپس build میکنیم .
