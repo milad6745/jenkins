@@ -4,7 +4,7 @@
 ![image](https://github.com/milad6745/jenkins/assets/113288076/59466f49-3adf-46d8-aefc-c7be2d92537e)
 
 ```
-/var/jenkins_home/.m2/repository/com/example/maven-samples/single-module-project/1.0-SNAPSHOT/single-module-project-1.0-SNAPSHOT.jar
+/var/jenkins_home/workspace/maven01/maven-samples/single-module/target/single-module-project.jar
 ```
 برای اجرا کردن این خروجی یه add build أیگه میکنیم و این اسکریپت را اینگونه اجرا میکنیم .
 
