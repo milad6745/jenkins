@@ -40,8 +40,10 @@ chmod +x *
 فایل را با ویرایشگر مورد علاقه‌تان مانند VI یا nano باز کنید و خطوط زیر را درست قبل از آخرین خط اضافه کنید:
 
 ```xml
-<user username="tomcatmanager" password="password" roles="manager-gui"/>
-<user username="deployer" password="password" roles="manager-script"/>
+ <role rolename="manager-gui"/>
+  <role rolename="manager-script"/>
+  <user username="tomcat" password="tomcat" roles="manager-gui,manager-script"/>
+
 ```
 
 در اینجا دو نام کاربری به نام‌های tomcatmanager و deployer ایجاد می‌کنیم. حساب deployer برای استقرار فایل WAR از طریق HTTP استفاده می‌شود.
