@@ -7,17 +7,30 @@
 هدف نهایی ما ادغام جنکینز و تامکت و نحوهٔ استقرار برنامه در تامکت با استفاده از جنکینز می‌باشد. استقرار جنکینز و تامکت.
 
 
-## `پیکربندی تامکت (Tomcat)`
+## `پیکربندی و نصب تامکت (Tomcat)`
 
-فرض می‌کنیم که شما سرور تامکت را دانلود کرده و بدون هیچ مشکلی آن را راه‌اندازی کرده‌اید. حالا به مرحلهٔ بعدی می‌پردازیم که تامکت را برای دریافت استقرارها (deployments) و فعال‌سازی رابط مدیریت مبتنی بر متن (TEXT) و رابط مبتنی بر رابط گرافیکی (GUI) آماده می‌کند.
 
-تمام سرورهای برنامه تامکت به صورت پیش‌فرض با برنامه مدیریت (manager application) ارائه شده‌اند. اگر به دایرکتوری webapps سرور تامکت دانلود شده خود نگاه کنید، می‌توانید آن را ببینید.
+```
+apt install wget unzip default-jdk
+wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.86/bin/apache-tomcat-9.0.86-windows-x64.zip
+unzip apache-tomcat-9.0.86-windows-x64.zip
+mkdir /opt/tomcat
+cp -rp apache-tomcat-9.0.86-windows-x64 /opt/opmcat
+```
 
-در ابتدا، ممکن است نتوانید به آن دسترسی پیدا کنید، زیرا برنامه مدیریت نیاز به پیکربندی عناصر امنیتی خاصی دارد تا قبل از دسترسی به آن پیکربندی شود.
+## change port tomcat
+```
+cd /opt/tomcat/apache-tomcat-9.0.86/conf#
+nano server.xml
+ <Connector port="9090" protocol="HTTP/1.1"
+               connectionTimeout="20000"
+               redirectPort="8443"
+               maxParameterCount="1000
 
-بگذارید مثالی از پیکربندی تامکت ۷ خود را بیاورم و مراحلی که انجام دادم تا آن را درست کنم را الصاق کنم.
-
-تامکت ۷ خود را در سرور سانتوس نصب کرده‌ام و آن را در دایرکتوری /apps/tomcat/tomcat7 نصب کرده‌ام و این مسیر به عنوان مقدار متغیر CATALINA_HOME من تنظیم شده است. حالا شما باید قبل از ادامه مراحل بعدی، متغیر CATALINA_HOME خود را پیدا کنید.
+cd cd /opt/tomcat/apache-tomcat-9.0.86/bin#
+chmod +x *
+./startup.sh
+```
 
 
 ## `Update Roles and User credentials - Configuring Tomcat Security`
