@@ -7,7 +7,7 @@ apt install maven
 سپس برای تست نصب و دایرکتوری نصب شده جاوا از کامند زیر استفاده میکنیم .
 
 ```
-maven --version
+mvn --version
 Apache Maven 3.8.7
 Maven home: /usr/share/maven
 Java version: 17.0.9, vendor: Eclipse Adoptium, runtime: /opt/java/openjdk
